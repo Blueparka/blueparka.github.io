@@ -16,9 +16,9 @@
       line-height: 1.8;
       display: flex;
       justify-content: center;
-      align-items: center;
+      align-items: flex-start; /* 上寄せに変更 */
       text-align: center;
-      padding: 20px;
+      padding: 40px 20px 20px; /* 上に余裕を持たせる */
       box-sizing: border-box;
     }
     .container {
@@ -28,15 +28,18 @@
     h1 {
       font-size: 24px;
       font-weight: 300;
-      margin-bottom: 40px;
+      margin-bottom: 80px; /* タイトルと本文の間隔を広く */
     }
-    p {
-      margin: 10px 0;
+    /* 下3行をまとめるブロック */
+    .info {
+      font-size: 12px;      /* 小さめ文字 */
+      line-height: 1.2;     /* 行間狭め */
+      color: #555;
+      margin: 0 auto;
+      max-width: 300px;
     }
-    .small-note {
-      font-size: 0.75em;
-      color: #666;
-      margin-top: -5px;
+    .info p {
+      margin: 4px 0; /* 行間をさらに詰める */
     }
     a {
       color: #111;
@@ -50,10 +53,11 @@
 <body>
   <div class="container">
     <h1>Blue Parka</h1>
-    <p>We are a small independent developer focused on Adobe UXP plugin development.</p>
-    <p>Representative: Hideaki Kawada</p>
-    <p>Contact: welcome★blueparka.tokyo</p>
-    <p class="small-note">（★ → @）</p>
+    <div class="info">
+      <p>Representative: Hideaki Kawada</p>
+      <p>Contact: welcome★blueparka.tokyo</p>
+      <p>（★ → @）</p>
+    </div>
   </div>
 </body>
 </html>
