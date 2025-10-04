@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SafeSnap Panel - Blue Parka</title>
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;600&family=Quicksand:wght@600&display=swap" rel="stylesheet" />
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      background-color: #fff;
+      color: #222;
+      font-family: 'M PLUS Rounded 1c', sans-serif;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 1.6;
+      letter-spacing: 0.04em;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      text-align: center;
+      padding: 40px 10px 80px;
+      box-sizing: border-box;
+      position: relative;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 680px;
+      width: 100%;
+      padding: 0 10px;
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 30px;
+      font-size: 16px;
+      color: #0078d7;
+      text-decoration: none;
+    }
+    .back-link:hover {
+      text-decoration: underline;
+    }
+    h1 {
+      font-family: 'Quicksand', sans-serif;
+      font-weight: 600;
+      font-size: 36px;
+      margin-bottom: 20px;
+      color: #111;
+    }
+    .price {
+      font-size: 20px;
+      font-weight: bold;
+      color: #0078d7;
+      margin-bottom: 40px;
+    }
+    .video-section {
+      margin-bottom: 40px;
+    }
+    .video-section h2 {
+      font-family: 'Quicksand', sans-serif;
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: #111;
+    }
+    iframe {
+      width: 100%;
+      height: 380px;
+      border: none;
+      max-width: 100%;
+      border-radius: 8px;
+    }
+    .product-section {
+      margin-top: 40px;
+      text-align: left;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #333;
+    }
+    .product-section h2 {
+      font-family: 'Quicksand', sans-serif;
+      font-size: 24px;
+      margin-bottom: 20px;
+      font-weight: 600;
+      color: #111;
+      text-align: center;
+    }
+    .product-section p {
+      margin-bottom: 15px;
+    }
+    .buy-button {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 30px;
+      background-color: #0078d7;
+      color: white;
+      font-weight: 600;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background-color 0.2s;
+    }
+    .buy-button:hover {
+      background-color: #005a9e;
+      text-decoration: none;
+    }
+    .info {
+      font-size: 15px;
+      line-height: 1.4;
+      color: #555;
+      margin: 60px auto 0;
+      max-width: 320px;
+      letter-spacing: 0.02em;
+    }
+    .info p {
+      margin: 6px 0;
+    }
+    a {
+      color: #222;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    footer {
+      margin-top: 60px;
+      font-size: 14px;
+      color: #666;
+      letter-spacing: 0.02em;
+    }
+    footer a {
+      margin: 0 8px;
+    }
+    /* Modal */
+    .modal-bg {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background-color: rgba(0,0,0,0.6);
+      z-index: 999;
+      overflow-y: auto;
+      padding: 40px 20px;
+      box-sizing: border-box;
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-bg.active {
+      display: flex;
+    }
+    .modal {
+      background: white;
+      border-radius: 10px;
+      max-width: 600px;
+      width: 100%;
+      max-height: 80vh;
+      overflow-y: auto;
+      padding: 20px 30px;
+      box-sizing: border-box;
+      text-align: left;
+      color: #333;
+      position: relative;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+    .modal h2 {
+      font-family: 'Quicksand', sans-serif;
+      font-weight: 600;
+      margin-top: 0;
+    }
+    .modal-close {
+      position: absolute;
+      right: 15px;
+      top: 15px;
+      font-size: 22px;
+      font-weight: bold;
+      cursor: pointer;
+      color: #999;
+    }
+    .modal-close:hover {
+      color: #555;
+    }
+    /* Responsive */
+    @media (max-width: 600px) {
+      html, body {
+        font-size: 17px;
+        padding: 30px 10px 80px;
+      }
+      .back-link {
+        font-size: 15px;
+        margin-bottom: 20px;
+      }
+      h1 {
+        font-size: 28px;
+        margin-bottom: 15px;
+      }
+      .price {
+        font-size: 18px;
+        margin-bottom: 30px;
+      }
+      .video-section h2 {
+        font-size: 20px;
+        margin-bottom: 15px;
+      }
+      iframe {
+        height: calc((100vw - 20px) * 9 / 16);
+      }
+      .product-section {
+        font-size: 15px;
+      }
+      .info {
+        font-size: 14px;
+        margin-top: 40px;
+        max-width: 90%;
+      }
+      .modal {
+        max-height: 90vh;
+        padding: 15px 20px;
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="index.html" class="back-link">← Back to Blue Parka</a>
+    
+    <h1>SafeSnap Panel</h1>
+    <div class="price">USD $12.00</div>
+
+    <div class="video-section">
+      <h2>Demo Video</h2>
+      <iframe src="https://www.youtube.com/embed/se2COYGoG8E"
+        title="SafeSnap Plugin Demo"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+
+    <div class="product-section">
+      <h2>Product Overview</h2>
+      <p>
+        SafeSnap Panel is a plugin for Photoshop that allows users to precisely align not only text layers but also image and shape layers to various safety margins on the canvas (90%, 93%, and 95%).
+      </p>
+      <p>
+        You can snap a single layer or multiple selected layers at once, making it especially useful for streamlining layout work in professional design environments.
+      </p>
+      <p>
+        SafeSnap helps ensure your designs are properly aligned for a variety of display or print standards. While similar results may be possible through manual guides or actions, SafeSnap offers a much more intuitive and responsive UI that speeds up your workflow.
+      </p>
+      <p>
+        Note: Colored backgrounds shown in screenshots and videos are added for visual clarity and are not included in the plugin.
+      </p>
+
+      <div style="text-align: center;">
+        <a href="https://exchange.adobe.com/apps/cc/7c745105/safesnap" target="_blank" rel="noopener noreferrer" class="buy-button">
+          Buy on Adobe Exchange
+        </a>
+      </div>
+    </div>
+
+    <div class="info">
+      <p>Representative: Hideaki Kawada</p>
+      <p>Contact: welcome★blueparka.tokyo</p>
+      <p>（★ → @）</p>
+    </div>
+
+    <footer>
+      <a id="link-terms" href="#">Terms of Service</a> |
+      <a id="link-privacy" href="#">Privacy Policy</a> |
+      <a id="link-refund" href="#">Refund Policy</a>
+    </footer>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal-bg" id="modal-bg" role="dialog" aria-modal="true" aria-labelledby="modal-title" tabindex="-1">
+    <div class="modal" id="modal-content">
+      <span class="modal-close" id="modal-close" aria-label="Close">&times;</span>
+      <div id="modal-text"></div>
+    </div>
+  </div>
+
+  <script>
+    const modalBg = document.getElementById('modal-bg');
+    const modalContent = document.getElementById('modal-text');
+    const modalClose = document.getElementById('modal-close');
+
+    const policies = {
+      terms: `
+        <h2 id="modal-title">Terms of Service</h2>
+        <p>By using Adobe UXP plugins provided by Blue Parka ("we", "us"), you agree to the following conditions:</p>
+        <ul>
+          <li>The software is provided "as is" without any explicit warranties.</li>
+          <li>Users use the software at their own risk.</li>
+          <li>We are not liable for any damages resulting from use.</li>
+          <li>These terms may change without prior notice.</li>
+        </ul>
+      `,
+      privacy: `
+        <h2 id="modal-title">Privacy Policy</h2>
+        <p>Blue Parka ("we", "us") properly manages personal information collected through our website and plugins.</p>
+        <p>We do not sell or share your personal data with third parties except as required by law.</p>
+        <p>We use collected data only to improve our products and customer support.</p>
+      `,
+      refund: `
+        <h2 id="modal-title">Refund Policy</h2>
+        <p>Due to the digital nature of our products, refunds are generally not provided.</p>
+        <p>If you experience technical issues, please contact us for support and possible solutions.</p>
+      `
+    };
+
+    function openModal(type) {
+      modalContent.innerHTML = policies[type] || '';
+      modalBg.classList.add('active');
+      modalBg.focus();
+    }
+
+    function closeModal() {
+      modalBg.classList.remove('active');
+      modalContent.innerHTML = '';
+    }
+
+    document.getElementById('link-terms').addEventListener('click', (e) => {
+      e.preventDefault();
+      openModal('terms');
+    });
+
+    document.getElementById('link-privacy').addEventListener('click', (e) => {
+      e.preventDefault();
+      openModal('privacy');
+    });
+
+    document.getElementById('link-refund').addEventListener('click', (e) => {
+      e.preventDefault();
+      openModal('refund');
+    });
+
+    modalClose.addEventListener('click', closeModal);
+    modalBg.addEventListener('click', (e) => {
+      if (e.target === modalBg) closeModal();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modalBg.classList.contains('active')) closeModal();
+    });
+  </script>
+</body>
+</html>
