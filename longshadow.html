@@ -56,9 +56,9 @@
     }
     .status {
       font-size: 16px;
-      color: #999;
+      color: #28a745;
       margin-bottom: 40px;
-      font-style: italic;
+      font-weight: 600;
     }
     .video-section {
       margin-bottom: 40px;
@@ -95,15 +95,20 @@
     .product-section p {
       margin-bottom: 15px;
     }
-    .coming-soon {
+    .download-button {
       display: inline-block;
       margin-top: 30px;
-      padding: 12px 30px;
-      background-color: #ccc;
-      color: #666;
+      padding: 14px 40px;
+      background-color: #0078d7;
+      color: #fff;
       font-weight: 600;
       border-radius: 6px;
-      cursor: not-allowed;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+    .download-button:hover {
+      background-color: #005a9e;
+      text-decoration: none;
     }
     .info {
       font-size: 15px;
@@ -214,6 +219,10 @@
       .product-section {
         font-size: 15px;
       }
+      .download-button {
+        padding: 12px 30px;
+        font-size: 16px;
+      }
       .info {
         font-size: 14px;
         margin-top: 40px;
@@ -233,7 +242,7 @@
     
     <h1>Long Shadow FX</h1>
     <div class="price">Free</div>
-    <div class="status">Adobe Exchange review pending</div>
+    <div class="status">✓ Available on Adobe Exchange</div>
 
     <div class="video-section">
       <h2>Demo Video</h2>
@@ -262,11 +271,11 @@
         • Preserves existing layer effects (glow, stroke, etc.) except drop shadow
       </p>
       <p>
-        Whether you're designing for web, mobile, or print, Longshadow streamlines your workflow and helps you achieve professional results in seconds.
+        Whether you're designing for web, mobile, or print, Long Shadow FX streamlines your workflow and helps you achieve professional results in seconds.
       </p>
 
       <div style="text-align: center;">
-        <span class="coming-soon">Coming Soon on Adobe Exchange</span>
+        <a href="https://exchange.adobe.com/apps/cc/d800e52e/long-shadow-fx" class="download-button" target="_blank" rel="noopener noreferrer">Get it on Adobe Exchange</a>
       </div>
     </div>
 
