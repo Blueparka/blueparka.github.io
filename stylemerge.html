@@ -57,7 +57,7 @@
     }
     .status {
       font-size: 16px;
-      color: #ff9800;
+      color: #28a745;
       margin-bottom: 40px;
       font-weight: 600;
     }
@@ -100,13 +100,16 @@
       display: inline-block;
       margin-top: 30px;
       padding: 14px 40px;
-      background-color: #999;
+      background-color: #0078d7;
       color: #fff;
       font-weight: 600;
       border-radius: 6px;
       text-decoration: none;
-      cursor: not-allowed;
-      opacity: 0.6;
+      transition: background-color 0.3s ease;
+    }
+    .download-button:hover {
+      background-color: #005a9e;
+      text-decoration: none;
     }
     .info {
       font-size: 15px;
@@ -238,7 +241,7 @@
     
     <h1>Style Merge</h1>
     <div class="price">Free</div>
-    <div class="status">Under Review on Adobe Exchange</div>
+    <div class="status">Available on Adobe Exchange</div>
 
     <div class="video-section">
       <h2>Demo Video</h2>
@@ -287,7 +290,7 @@
       </p>
 
       <div style="text-align: center;">
-        <span class="download-button" title="Currently under review on Adobe Exchange">Coming Soon to Adobe Exchange</span>
+        <a href="https://exchange.adobe.com/apps/cc/1beec8c9/style-merge" class="download-button" target="_blank" rel="noopener noreferrer">Get it on Adobe Exchange</a>
       </div>
     </div>
 
