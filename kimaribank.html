@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blue Parka - Photoshop Plugins</title>
+  <title>KIMARI BANK - Blue Parka</title>
   <link rel="icon" type="image/png" href="/favicon.png">
+  <meta name="description" content="Register the Photoshop files you use all the time — character bases, templates, logos, and watermarks — and bring them in with a single click.">
   <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;600&family=Quicksand:wght@600&display=swap" rel="stylesheet" />
   <style>
     html, body {
@@ -27,83 +28,93 @@
       min-height: 100vh;
     }
     .container {
-      max-width: 800px;
+      max-width: 680px;
       width: 100%;
       padding: 0 10px;
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 30px;
+      font-size: 16px;
+      color: #0078d7;
+      text-decoration: none;
+    }
+    .back-link:hover {
+      text-decoration: underline;
     }
     h1 {
       font-family: 'Quicksand', sans-serif;
       font-weight: 600;
       font-size: 36px;
-      margin-bottom: 60px;
+      margin-bottom: 20px;
       color: #111;
     }
-    .description {
-      margin-bottom: 60px;
-      font-size: 18px;
-      line-height: 1.5;
+    .price {
+      font-size: 20px;
+      font-weight: bold;
+      color: #0078d7;
+      margin-bottom: 40px;
     }
-    .plugins-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-      margin-bottom: 60px;
+    .video-section {
+      margin-bottom: 40px;
     }
-    .plugin-card {
-      background: #f8f8f8;
-      border-radius: 12px;
-      padding: 30px;
-      text-align: center;
-      transition: transform 0.2s, box-shadow 0.2s;
-      cursor: pointer;
-      text-decoration: none;
-      color: inherit;
-      display: block;
-    }
-    .plugin-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    }
-    .plugin-icon {
-      width: 96px;
-      height: 96px;
-      margin: 0 auto 20px;
-      display: block;
-    }
-    .plugin-card h2 {
+    .video-section h2 {
       font-family: 'Quicksand', sans-serif;
       font-size: 24px;
-      margin: 0 0 12px 0;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: #111;
+    }
+    iframe {
+      width: 100%;
+      height: 380px;
+      border: none;
+      max-width: 100%;
+      border-radius: 8px;
+    }
+    .product-section {
+      margin-top: 40px;
+      text-align: left;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #333;
+    }
+    .product-section h2 {
+      font-family: 'Quicksand', sans-serif;
+      font-size: 24px;
+      margin-bottom: 20px;
       font-weight: 600;
       color: #111;
-      white-space: nowrap;
+      text-align: center;
     }
-    .plugin-card .price {
-      font-size: 16px;
-      font-weight: 600;
-      color: #0078d7;
-      margin-bottom: 12px;
+    .product-section p {
+      margin-bottom: 15px;
     }
-    .plugin-card .price.free {
-      color: #28a745;
-    }
-    .plugin-card .desc {
-      font-size: 15px;
-      line-height: 1.6;
-      color: #555;
-      text-align: left;
-    }
-    .plugin-card .status {
+    .product-section .note {
       font-size: 14px;
-      color: #999;
-      margin-top: 10px;
+      color: #777;
       font-style: italic;
+    }
+    .buy-button {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 30px;
+      background-color: #0078d7;
+      color: white;
+      font-weight: 600;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background-color 0.2s;
+    }
+    .buy-button:hover {
+      background-color: #005a9e;
+      text-decoration: none;
     }
     .info {
       font-size: 15px;
       line-height: 1.4;
       color: #555;
-      margin: 40px auto 0;
+      margin: 60px auto 0;
       max-width: 320px;
       letter-spacing: 0.02em;
     }
@@ -127,7 +138,6 @@
     footer a {
       margin: 0 8px;
     }
-    /* Modal */
     .modal-bg {
       display: none;
       position: fixed;
@@ -176,35 +186,36 @@
     .modal-close:hover {
       color: #555;
     }
-    /* Responsive */
     @media (max-width: 600px) {
       html, body {
         font-size: 17px;
         padding: 30px 10px 80px;
       }
+      .back-link {
+        font-size: 15px;
+        margin-bottom: 20px;
+      }
       h1 {
         font-size: 28px;
-        margin-bottom: 50px;
+        margin-bottom: 15px;
       }
-      .description {
-        font-size: 17px;
-        margin-bottom: 40px;
+      .price {
+        font-size: 18px;
+        margin-bottom: 30px;
       }
-      .plugins-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
+      .video-section h2 {
+        font-size: 20px;
+        margin-bottom: 15px;
       }
-      .plugin-card {
-        padding: 24px;
+      iframe {
+        height: calc((100vw - 20px) * 9 / 16);
       }
-      .plugin-icon {
-        width: 80px;
-        height: 80px;
-        margin-bottom: 16px;
+      .product-section {
+        font-size: 15px;
       }
       .info {
         font-size: 14px;
-        margin-top: 30px;
+        margin-top: 40px;
         max-width: 90%;
       }
       .modal {
@@ -217,56 +228,56 @@
 </head>
 <body>
   <div class="container">
-    <h1>Blue Parka</h1>
-    <p class="description">
-      Blue Parka is a small independent developer based in Japan, dedicated to building reliable and user-friendly Adobe UXP plugins. Our tools are designed to support professional workflows, with a focus on clarity, minimalism, and usability.
-    </p>
+    <a href="/" class="back-link">← Back to Home</a>
 
-    <div class="plugins-grid">
-      <a href="safesnap.html" class="plugin-card">
-        <img src="safesnap-icon.png" alt="SafeSnap icon" class="plugin-icon">
-        <h2>SafeSnap Panel</h2>
-        <div class="price">USD $12.00</div>
-        <div class="desc">
-          Precisely align layers to safety margins (90%, 93%, 95%) on the canvas. Perfect for professional layout work in Photoshop.
-        </div>
-      </a>
+    <h1>KIMARI BANK</h1>
+    <div class="price">USD $9.99</div>
 
-      <a href="kimaribank.html" class="plugin-card">
-        <img src="kimaribank-icon.png" alt="KIMARI BANK icon" class="plugin-icon">
-        <h2>KIMARI BANK</h2>
-        <div class="price">USD $9.99</div>
-        <div class="desc">
-          Register your frequently-used files — character bases, templates, logos, watermarks — and bring them into Photoshop with a single click.
-        </div>
-      </a>
+    <div class="video-section">
+      <h2>Demo Video</h2>
+      <iframe src="https://www.youtube.com/embed/fn6-3bENDRY"
+        title="KIMARI BANK Plugin Demo"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
 
-      <a href="longshadow.html" class="plugin-card">
-        <img src="longshadow-icon.png" alt="Long Shadow FX icon" class="plugin-icon">
-        <h2>Long Shadow FX</h2>
-        <div class="price free">Free</div>
-        <div class="desc">
-          Create flat design long shadows with one click. Freely control color, length, angle, and opacity.
-        </div>
-      </a>
+    <div class="product-section">
+      <h2>Product Overview</h2>
+      <p>
+        Your go-to files, one click away. KIMARI BANK is a Photoshop plugin for registering the files you already use all the time — character bases, background textures, logos and watermarks, your own business card or packaging templates — and bringing them in with a single click, instead of digging through folders and copy-pasting every time.
+      </p>
+      <p class="note">
+        Note: the plugin doesn't come with any pre-made assets or templates — everything you register is a file of your own.
+      </p>
+      <p>
+        Working in an open document? Click a preset and all its layers are pasted straight in. Starting something new from a template? Click with no document open, and the template's contents load into a fresh new document. Since your original template file is never opened directly, there's no risk of accidentally overwriting it. Just customize the new document and save it under whatever name you like.
+      </p>
+      <p>
+        <strong>Key Features:</strong>
+      </p>
+      <p>
+        • <strong>One-click register and apply:</strong> Supports PSD, PSB, PNG, JPEG, and TIFF. Just pick a file from your own library — that's it.<br>
+        • <strong>Never overwrites your original file:</strong> Template files are never opened directly — they're always expanded into a brand-new document, so there's no risk of accidentally saving over your original.<br>
+        • <strong>Easy re-linking:</strong> If a registered file goes offline because it's been moved from its original location, just point KIMARI BANK at a folder to re-link everything at once.<br>
+        • <strong>Built for daily use:</strong> Cmd/Ctrl+drag to reorder, right-click to rename or delete, and a responsive grid that adapts to however wide you keep the panel.<br>
+        • <strong>100% local, no cloud:</strong> Everything is stored locally on your machine. Nothing is ever sent to an external server.
+      </p>
+      <p>
+        <strong>Who it's for:</strong>
+      </p>
+      <p>
+        ・Illustrators and comic artists who reopen their own character base or template constantly<br>
+        ・Photo editors who paste in their own logo or watermark on every job<br>
+        ・Designers who produce business cards, packaging, or flyers from their own format<br>
+        ・Anyone who reuses the same personal assets across multiple projects
+      </p>
 
-      <a href="hscale.html" class="plugin-card">
-        <img src="hscale-icon.png" alt="Text H-Scale Controller icon" class="plugin-icon">
-        <h2>Text H-Scale Controller</h2>
-        <div class="price free">Free</div>
-        <div class="desc">
-          Adjust horizontal scale (character width) of text layers with ease. Intuitive slider, preset buttons, and keyboard shortcuts.
-        </div>
-      </a>
-
-      <a href="stylemerge.html" class="plugin-card">
-        <img src="stylemerge-icon.png" alt="Style Merge icon" class="plugin-icon">
-        <h2>Style Merge</h2>
-        <div class="price free">Free</div>
-        <div class="desc">
-          Copy and selectively paste layer styles while preserving existing effects. Build complex styles progressively with support for multiple instances.
-        </div>
-      </a>
+      <div style="text-align: center;">
+        <a href="https://exchange.adobe.com/apps/cc/8f145233/kimari-bank" target="_blank" rel="noopener noreferrer" class="buy-button">
+          Buy on Adobe Exchange
+        </a>
+      </div>
     </div>
 
     <div class="info">
@@ -282,7 +293,6 @@
     </footer>
   </div>
 
-  <!-- Modal -->
   <div class="modal-bg" id="modal-bg" role="dialog" aria-modal="true" aria-labelledby="modal-title" tabindex="-1">
     <div class="modal" id="modal-content">
       <span class="modal-close" id="modal-close" aria-label="Close">&times;</span>
